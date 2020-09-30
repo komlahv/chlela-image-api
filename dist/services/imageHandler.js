@@ -6,8 +6,8 @@ const jimp_1 = tslib_1.__importDefault(require("jimp"));
 exports.addFrame = (imageData) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const base64DataTrim = imageData.replace(/^data:image\/\w+;base64,/, '');
     const image = yield jimp_1.default.read(Buffer.from(base64DataTrim, 'base64'));
-    const base = yield jimp_1.default.read('https://i.ibb.co/12PzYGs/black-frame.jpg');
-    const frame = yield jimp_1.default.read('https://i.ibb.co/HY7cPgV/gold-frame.png');
+    const base = yield jimp_1.default.read('src/blackFrame.jpg');
+    const frame = yield jimp_1.default.read('src/goldFrame.png');
     frame.resize(756, 599);
     image.resize(656, 499);
     base.resize(756, 599);

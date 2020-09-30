@@ -5,15 +5,9 @@ export const addFrame = async (imageData: string) => {
     /^data:image\/\w+;base64,/,
     ''
   );
-  const image: Jimp = await Jimp.read(
-    Buffer.from(base64DataTrim, 'base64')
-  );
-  const base: Jimp = await Jimp.read(
-    'https://i.ibb.co/12PzYGs/black-frame.jpg'
-  );
-  const frame: Jimp = await Jimp.read(
-    'https://i.ibb.co/HY7cPgV/gold-frame.png'
-  );
+  const image: Jimp = await Jimp.read(Buffer.from(base64DataTrim, 'base64'));
+  const base: Jimp = await Jimp.read('src/blackFrame.jpg');
+  const frame: Jimp = await Jimp.read('src/goldFrame.png');
   frame.resize(756, 599);
   image.resize(656, 499);
 
@@ -27,4 +21,4 @@ export const addFrame = async (imageData: string) => {
   const framedImageData: string = await base.getBase64Async('image/png');
 
   return framedImageData;
-}
+};
