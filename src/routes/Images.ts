@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import {addFrame} from '../services/imageHandler';
+import { addFrame } from '../services/imageHandler';
 
 // Init shared
 const router = Router();
@@ -8,6 +8,11 @@ const router = Router();
 /******************************************************************************
  *                       Add One - "POST /api/users/add"
  ******************************************************************************/
+router.get('/', async (req: Request, res: Response) => {
+  return res.status(200).json({
+    message: 'awake',
+  });
+});
 
 router.post('/', async (req: Request, res: Response) => {
   const { imageData } = req.body;
